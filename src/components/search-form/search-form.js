@@ -1,5 +1,6 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import ResultItem from '../result-item/result-item';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -29,13 +30,15 @@ class SearchForm extends React.Component {
         <input
           name='search-term'
           placeholder='Search reddit'
-          value={ this.props.searchTerm }
+          value={ this.state.searchTerm }
           onChange={ this.handleSearchTerm }
         />
         <input
           name='search-limit'
           placeholder='How many results?'
-          value={ this.props.searchLimit }
+          min='0'
+          max='100'
+          value={ this.state.searchLimit }
           onChange={ this.handleSearchLimit }
           required
         />
@@ -44,5 +47,7 @@ class SearchForm extends React.Component {
     );
   }
 }
-
+SearchForm.propTypes = {
+  title: PropTypes.array,
+};
 export default SearchForm;

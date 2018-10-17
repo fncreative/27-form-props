@@ -1,9 +1,10 @@
 import "@babel/polyfill";
 import React from 'react';
 import superagent from 'superagent';
+import Header from '../header/header';
 import SearchForm from '../search-form/search-form';
 import ResultItem from '../result-item/result-item';
-import Header from '../header/header';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +14,8 @@ class App extends React.Component {
     this.state.redditResults = [];
   }
 
-  componentDidMount = async () => {
-    await this.loadResultsList()
+  async componentDidMount() {
+    await this.loadResultsList();
     console.log('reddit list loaded');
   }
 
